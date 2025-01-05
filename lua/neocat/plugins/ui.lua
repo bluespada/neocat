@@ -23,12 +23,12 @@ return {
         end
     }, -- default theme will be catpuccin for all necovim themes
     { 'DaikyXendo/nvim-material-icon' }, -- icons
-    { 'norcalli/nvim-colorizer.lua' }, -- colorizer
-    { 'nvimdev/dashboard-nvim' },
-    { 'hoob3rt/lualine.nvim' },
-    { 'akinsho/bufferline.nvim' },
-    { 'HiPhish/rainbow-delimiters.nvim' }, -- rainbow delimiters
-    { 'lukas-reineke/indent-blankline.nvim' }, -- indentline
+    { 
+        'norcalli/nvim-colorizer.lua',
+        config = function()
+            require'colorizer'.setup{}
+        end
+    }, -- colorizer
     { 
         'xiyaowong/transparent.nvim',
         config=function()

@@ -5,6 +5,10 @@ local cmd = vim.api.nvim_command
 local c = vim.cmd
 
 M.init = function(config)
+
+    if config.init then
+        config.init()
+    end
     -- default configuration
     opt.termguicolors = config.termguicolors and config.termguicolor or true
     opt.fsync = config.fsync and config.fsync or true

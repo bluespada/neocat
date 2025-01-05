@@ -8,7 +8,7 @@ function M.setup(cfg)
     lazy.check_and_install()
     -- setup configuration
     require'neocat.core.config'.init(cfg)
-    print(lazy.bootstrap)
+    require'neocat.keybind'.bind(cfg)
 end
 
 return M
