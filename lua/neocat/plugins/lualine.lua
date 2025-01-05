@@ -7,8 +7,7 @@ return {
             -- Credit: glepnir
             -- Edited: Bluespada
             local lualine = require 'lualine'
-
-            --local colors = {
+                --local colors = {
                 --black        = '#282828',
                 --white        = '#ebdbb2',
                 --red          = '#fb4934',
@@ -20,7 +19,6 @@ return {
                 --lightgray    = '#504945',
                 --inactivegray = '#7c6f64',
                 --}
-
                 local colors = {
                     black        = '#16161D',  -- Kanagawa's primary background color
                     white        = '#DCD7BA',  -- Lighter text color
@@ -33,9 +31,6 @@ return {
                     lightgray    = '#2A2A37',  -- Light gray text color
                     inactivegray = '#54546D',  -- Dimmed elements or inactive UI elements
                 }
-
-
-
                 local conditions = {
                     buffer_not_empty = function() return vim.fn.empty(vim.fn.expand('%:t')) ~= 1 end,
                     hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
@@ -169,10 +164,6 @@ return {
                     color_removed = colors.red,
                     condition = conditions.hide_in_width
                 }
-
-
-
-
 
                 -- Insert mid section. You can make any number of sections in neovim :)
                 -- for lualine it's any number greater then 2

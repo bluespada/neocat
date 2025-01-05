@@ -27,14 +27,14 @@ return {
             }
         end
     }, -- git integration
-    { 
+    {
         'nvim-treesitter/nvim-treesitter',
         config = function()
             require'nvim-tree'.setup{}
         end
     }, -- code highlighter
     -- lsp yara yara
-    { 
+    {
         'neovim/nvim-lspconfig',
         prority = 1000,
         config = function()
@@ -65,7 +65,6 @@ return {
                     use_lsp = true
                 }
             }
-
             -- setup cmp and snippet
             local luasnip = require'luasnip'
             local has_words_before = function()
@@ -192,7 +191,6 @@ return {
                     ghost_text = true
                 }
             }
-
             -- setup cmdline
             cmp.setup.cmdline(':', {
                 sources = cmp.config.sources({
@@ -213,7 +211,6 @@ return {
                     entries = { name = 'custom', selection_order = 'near_cursor' }
                 }
             })
-
             -- setup lspsaga
             local lspsaga = require'lspsaga'
             lspsaga.setup {
@@ -263,7 +260,6 @@ return {
                     enable = true
                 }
             }
-
             -- lsp setup
             local nvim_lspconfig = require'lspconfig'
             vim.diagnostic.config {
@@ -276,16 +272,13 @@ return {
                 local hl = "DiagnosticSign" .. name
                 vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
             end
-
             local cmp_lsp = require'cmp_nvim_lsp'
             -- setup snippet support
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
             capabilities.textDocument.completion.completionItem.snippetSupport = true
-
             nvim_lspconfig.vimls.setup {
                 capabilities = cmp_lsp.default_capabilities()
             }
-
             local mason = require'mason'
             mason.setup {
                 ui = {
@@ -296,13 +289,11 @@ return {
                     }
                 }
             }
-
             local mason_lsp_config = require'mason-lspconfig'
             mason_lsp_config.setup{
                 ensure_installed = { 'lua_ls' },
                 automatic_installation = true,
             }
-
             -- auto setup
             mason_lsp_config.setup_handlers {
                 function (server_name) -- default handler (optional)
@@ -327,7 +318,6 @@ return {
                     end
                 end,
             }
-
             -- trouble
             local trouble = require'trouble'
             trouble.setup{
@@ -397,11 +387,10 @@ return {
         }
 
     }, -- lspconfig
-    { 
+    {
         'ray-x/lsp_signature.nvim', 
         config = function()
             require'lsp_signature'.setup{}
         end
     }, -- lsp signature
-
 }
