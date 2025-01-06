@@ -42,15 +42,6 @@ return {
             local lspkind = require'lspkind'
             lspkind.init{}
 
-            local copilot = require'copilot'
-            copilot.setup {
-                suggestion = { enabled = false, keymap = { accept = false } },
-                panel = { enabled = false }
-            }
-
-            local copilot_cmp = require'copilot_cmp'
-            copilot_cmp.setup {}
-
             -- setup ai codeium
             local codeium = require 'codeium'
             codeium.setup {
@@ -132,7 +123,6 @@ return {
                             with_text = true,
                             mode = "symbol_text",
                             menu = ({
-                                copilot = "[Copilot]",
                                 codeium = "[Codeium]",
                                 buffer = "[Buffer]",
                                 nvim_lsp = "[LSP]",
@@ -146,11 +136,7 @@ return {
                                 if entry.source.name == 'codeium' then
                                     vim_item.kind = string.format('%s %s', "󱚝", "AI")
                                 end
-                                if entry.source.name == 'copilot' then
-                                    vim_item.kind = string.format('%s %s', "", "Copilot")
-                                end
                                 vim_item.menu = ({
-                                    copilot = "[Copilot]",
                                     codeium = "[Codeium]",
                                     buffer = "[Buffer]",
                                     nvim_lsp = "[LSP]",
@@ -169,7 +155,6 @@ return {
                 },
                 sources = cmp.config.sources(
                 {
-                    { name = 'copilot' },
                     { name = 'codeium' },
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
@@ -368,8 +353,6 @@ return {
         end,
         dependencies = {
             { 'Exafunction/codeium.nvim' }, -- AI Completion
-            { 'zbirenbaum/copilot.lua' }, -- copilot lua
-            { 'zbirenbaum/copilot-cmp' }, -- copilot additions for cmp
             { 'hrsh7th/cmp-nvim-lsp' }, -- new completion
             { 'hrsh7th/cmp-buffer' }, -- new completion
             { 'hrsh7th/cmp-path' }, -- new completion
