@@ -88,5 +88,9 @@ return {
             require'flash'.setup{}
         end
     }, -- flash
+    {
+        'OXY2DEV/markview.nvim',
+        lazy = false,
+    }, -- markdown preview
 }
 
