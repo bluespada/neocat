@@ -7,30 +7,30 @@ return {
             -- Credit: glepnir
             -- Edited: Bluespada
             local lualine = require 'lualine'
-                --local colors = {
-                --black        = '#282828',
-                --white        = '#ebdbb2',
-                --red          = '#fb4934',
-                --green        = '#b8bb26',
-                --blue         = '#83a598',
-                --yellow       = '#fe8019',
-                --gray         = '#a89984',
-                --darkgray     = '#3c3836',
-                --lightgray    = '#504945',
-                --inactivegray = '#7c6f64',
-                --}
                 local colors = {
-                    black        = '#16161D',  -- Kanagawa's primary background color
-                    white        = '#DCD7BA',  -- Lighter text color
-                    red          = '#C34043',  -- Kanagawa Dragon red
-                    green        = '#76946A',  -- Kanagawa Dragon green
-                    blue         = '#7E9CD8',  -- Kanagawa Dragon blue
-                    yellow       = '#DCA561',  -- Kanagawa Dragon yellow
-                    gray         = '#727169',  -- Kanagawa Dragon gray
-                    darkgray     = '#1F1F28',  -- Darker background color
-                    lightgray    = '#2A2A37',  -- Light gray text color
-                    inactivegray = '#54546D',  -- Dimmed elements or inactive UI elements
+                    black        = '#282828',
+                    white        = '#ebdbb2',
+                    red          = '#fb4934',
+                    green        = '#b8bb26',
+                    blue         = '#83a598',
+                    yellow       = '#fe8019',
+                    gray         = '#a89984',
+                    darkgray     = '#3c3836',
+                    lightgray    = '#504945',
+                    inactivegray = '#7c6f64',
                 }
+--                local colors = {
+--                    black        = '#16161D',  -- Kanagawa's primary background color
+--                    white        = '#DCD7BA',  -- Lighter text color
+--                    red          = '#C34043',  -- Kanagawa Dragon red
+--                    green        = '#76946A',  -- Kanagawa Dragon green
+--                    blue         = '#7E9CD8',  -- Kanagawa Dragon blue
+--                    yellow       = '#DCA561',  -- Kanagawa Dragon yellow
+--                    gray         = '#727169',  -- Kanagawa Dragon gray
+--                    darkgray     = '#1F1F28',  -- Darker background color
+--                    lightgray    = '#2A2A37',  -- Light gray text color
+--                    inactivegray = '#54546D',  -- Dimmed elements or inactive UI elements
+--                }
                 local conditions = {
                     buffer_not_empty = function() return vim.fn.empty(vim.fn.expand('%:t')) ~= 1 end,
                     hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
