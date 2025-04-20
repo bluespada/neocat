@@ -43,19 +43,19 @@ return {
             lspkind.init{}
 
             -- setup ai codeium
-            local codeium = require 'codeium'
-            codeium.setup {
-                enable_cmp_source = true,
-                virtual_text = {
-                    enable = true,
-                    manual = false,
-                    idle_delay = 0,
-                    virtual_text_priority = 1,
-                },
-                workspace_root = {
-                    use_lsp = true
-                }
-            }
+            -- local codeium = require 'codeium'
+            -- codeium.setup {
+            --     enable_cmp_source = true,
+            --     virtual_text = {
+            --         enable = true,
+            --         manual = false,
+            --         idle_delay = 0,
+            --         virtual_text_priority = 1,
+            --     },
+            --     workspace_root = {
+            --         use_lsp = true
+            --     }
+            -- }
             -- setup cmp and snippet
             local luasnip = require'luasnip'
             local has_words_before = function()
@@ -123,7 +123,7 @@ return {
                             with_text = true,
                             mode = "symbol_text",
                             menu = ({
-                                codeium = "[Codeium]",
+                                -- codeium = "[Codeium]",
                                 buffer = "[Buffer]",
                                 nvim_lsp = "[LSP]",
                                 luasnip = "[LuaSnip]",
@@ -133,11 +133,11 @@ return {
                             maxwidth = 50,
                             maxheight = 10,
                             before = function(entry, vim_item)
-                                if entry.source.name == 'codeium' then
-                                    vim_item.kind = string.format('%s %s', "󱚝", "AI")
-                                end
+                                -- if entry.source.name == 'codeium' then
+                                --    vim_item.kind = string.format('%s %s', "󱚝", "AI")
+                                -- end
                                 vim_item.menu = ({
-                                    codeium = "[Codeium]",
+                                    -- codeium = "[Codeium]",
                                     buffer = "[Buffer]",
                                     nvim_lsp = "[LSP]",
                                     luasnip = "[LuaSnip]",
@@ -155,7 +155,7 @@ return {
                 },
                 sources = cmp.config.sources(
                 {
-                    { name = 'codeium' },
+                    -- { name = 'codeium' },
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
                     { name = 'nvim_lsp_signature_help' },
@@ -352,7 +352,7 @@ return {
             }
         end,
         dependencies = {
-            { 'Exafunction/codeium.nvim' }, -- AI Completion
+            -- { 'Exafunction/windsurf.nvim' }, -- AI Completion
             { 'hrsh7th/cmp-nvim-lsp' }, -- new completion
             { 'hrsh7th/cmp-buffer' }, -- new completion
             { 'hrsh7th/cmp-path' }, -- new completion
