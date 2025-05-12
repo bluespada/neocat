@@ -60,6 +60,12 @@ neocat.setup {
         vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = "#689d6a", bg = "#3c3836" })
         vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = "#689d6a", bg = "#3c3836" })
 
+        local project_ftplugin = vim.fn.getcwd() .. '/.nvim/after/ftplugin'
+        if vim.fn.isdirectory(project_ftplugin) == 1 then
+            vim.opt.runtimepath:prepend(project_ftplugin)
+        end
+
+
     end,
     bind = function(map)
         -- nerd Tree shortcut

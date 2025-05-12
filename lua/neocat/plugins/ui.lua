@@ -6,6 +6,10 @@ return {
         config = function()
             local gruvbox = require'gruvbox'
 
+            gruvbox.setup {
+                contrast = "hard",
+            }
+
             vim.cmd([[colorscheme gruvbox]])
         end
     },
