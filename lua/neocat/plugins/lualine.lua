@@ -1,6 +1,6 @@
 return {
     { 
-        'hoob3rt/lualine.nvim',
+        'nvim-lualine/lualine.nvim',
         config = function()
             -- Eviline config for lualine
             -- Author: shadmansaleh

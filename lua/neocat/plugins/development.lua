@@ -247,6 +247,11 @@ return {
             }
             -- lsp setup
             local nvim_lspconfig = require'lspconfig'
+            nvim_lspconfig.clangd.setup {
+                cmd = { 
+                    "clangd", "--header-insertion=never"
+                },
+            }
             vim.diagnostic.config {
                 virtual_text = {
                     prefix = '●', -- Could be '●', '▎', 'x'
@@ -278,30 +283,6 @@ return {
             mason_lsp_config.setup{
                 ensure_installed = { 'lua_ls' },
                 automatic_installation = true,
-            }
-            -- auto setup
-            mason_lsp_config.setup_handlers {
-                function (server_name) -- default handler (optional)
-                    if server_name == 'pylsp' then
-                        require('lspconfig')[server_name].setup{
-                            capabilities = capabilities,
-                            settings = {
-                                pylsp = {
-                                    plugins = {
-                                        pycodestyle = {
-                                            ignore = {'W391', 'E501', 'E302', 'W293'},
-                                            maxLineLength = 100
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    else
-                        require('lspconfig')[server_name].setup {
-                            capabilities = capabilities,
-                        }
-                    end
-                end,
             }
             -- trouble
             local trouble = require'trouble'
