@@ -10,7 +10,7 @@ M.init = function(config)
         config.init()
     end
     -- default configuration
-    opt.termguicolors = config.termguicolors and config.termguicolor or true
+    opt.termguicolors = true -- config.termguicolors and config.termguicolor or true
     opt.fsync = config.fsync and config.fsync or true
     opt.undofile = config.undofile and config.undofile or true
     opt.completeopt = config.completeopt and config.completeopt or 'menuone,noinsert,noselect'

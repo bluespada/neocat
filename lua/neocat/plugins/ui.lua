@@ -1,18 +1,27 @@
 return {
     -- Interface 
-    {
-        "ellisonleao/gruvbox.nvim",
-        priority = 1000,
-        config = function()
-            local gruvbox = require'gruvbox'
+        {
+            "olimorris/onedarkpro.nvim",
+            priority = 1000,
+            config = function()
+                local onedark = require'onedarkpro'
+                vim.cmd("set termguicolors")
+                vim.cmd("colorscheme onedark_vivid")
+            end
+        },
+    -- {
+    --     "ellisonleao/gruvbox.nvim",
+    --     priority = 1000,
+    --     config = function()
+    --         local gruvbox = require'gruvbox'
 
-            gruvbox.setup {
-                contrast = "hard",
-            }
+    --         gruvbox.setup {
+    --             contrast = "hard",
+    --         }
 
-            vim.cmd([[colorscheme gruvbox]])
-        end
-    },
+    --         vim.cmd([[colorscheme gruvbox]])
+    --     end
+    -- },
 --    { 
 --        'rebelot/kanagawa.nvim',
 --        lazy = false,

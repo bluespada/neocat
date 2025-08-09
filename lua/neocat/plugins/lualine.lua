@@ -7,30 +7,30 @@ return {
             -- Credit: glepnir
             -- Edited: Bluespada
             local lualine = require 'lualine'
-                local colors = {
-                    black        = '#282828',
-                    white        = '#ebdbb2',
-                    red          = '#fb4934',
-                    green        = '#b8bb26',
-                    blue         = '#83a598',
-                    yellow       = '#fe8019',
-                    gray         = '#a89984',
-                    darkgray     = '#3c3836',
-                    lightgray    = '#504945',
-                    inactivegray = '#7c6f64',
-                }
---                local colors = {
---                    black        = '#16161D',  -- Kanagawa's primary background color
---                    white        = '#DCD7BA',  -- Lighter text color
---                    red          = '#C34043',  -- Kanagawa Dragon red
---                    green        = '#76946A',  -- Kanagawa Dragon green
---                    blue         = '#7E9CD8',  -- Kanagawa Dragon blue
---                    yellow       = '#DCA561',  -- Kanagawa Dragon yellow
---                    gray         = '#727169',  -- Kanagawa Dragon gray
---                    darkgray     = '#1F1F28',  -- Darker background color
---                    lightgray    = '#2A2A37',  -- Light gray text color
---                    inactivegray = '#54546D',  -- Dimmed elements or inactive UI elements
---                }
+            local colors = {
+                black        = '#282828',
+                white        = '#ebdbb2',
+                red          = '#fb4934',
+                green        = '#b8bb26',
+                blue         = '#83a598',
+                yellow       = '#fe8019',
+                gray         = '#a89984',
+                darkgray     = '#3c3836',
+                lightgray    = '#504945',
+                inactivegray = '#7c6f64',
+            }
+            --                local colors = {
+                --                    black        = '#16161D',  -- Kanagawa's primary background color
+                --                    white        = '#DCD7BA',  -- Lighter text color
+                --                    red          = '#C34043',  -- Kanagawa Dragon red
+                --                    green        = '#76946A',  -- Kanagawa Dragon green
+                --                    blue         = '#7E9CD8',  -- Kanagawa Dragon blue
+                --                    yellow       = '#DCA561',  -- Kanagawa Dragon yellow
+                --                    gray         = '#727169',  -- Kanagawa Dragon gray
+                --                    darkgray     = '#1F1F28',  -- Darker background color
+                --                    lightgray    = '#2A2A37',  -- Light gray text color
+                --                    inactivegray = '#54546D',  -- Dimmed elements or inactive UI elements
+                --                }
                 local conditions = {
                     buffer_not_empty = function() return vim.fn.empty(vim.fn.expand('%:t')) ~= 1 end,
                     hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
@@ -134,142 +134,142 @@ return {
                             t = 'TERMINAL'
                         }
                         vim.api.nvim_command(
-                        'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()])
-                        return '󰄛 ' .. mode_name[vim.fn.mode()] .. " MODE"
-                        -- return '🐱 ' .. mode_name[vim.fn.mode()] .. " MODE"
-                    end,
-                    color = "LualineMode",
-                    left_padding = 0
-                }
+                            'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()])
+                            return '󰄛 ' .. mode_name[vim.fn.mode()] .. " MODE"
+                            -- return '🐱 ' .. mode_name[vim.fn.mode()] .. " MODE"
+                        end,
+                        color = "LualineMode",
+                        left_padding = 0
+                    }
 
-                ins_left {
-                    'branch',
-                    icon = '',
-                    condition = conditions.check_git_workspace,
-                    color = { fg = colors.violet, gui = 'bold' }
-                }
+                    ins_left {
+                        'branch',
+                        icon = '',
+                        condition = conditions.check_git_workspace,
+                        color = { fg = colors.violet, gui = 'bold' }
+                    }
 
-                ins_left {
-                    'filename',
-                    condition = conditions.buffer_not_empty,
-                    color = { fg = colors.magenta }
-                }
+                    ins_left {
+                        'filename',
+                        condition = conditions.buffer_not_empty,
+                        color = { fg = colors.magenta }
+                    }
 
-                ins_left {
-                    'diff',
-                    -- Is it me or the symbol for modified us really weird
-                    symbols = { added = '  ', modified = '  ', removed = '  ' },
-                    color_added = colors.green,
-                    color_modified = colors.orange,
-                    color_removed = colors.red,
-                    condition = conditions.hide_in_width
-                }
+                    ins_left {
+                        'diff',
+                        -- Is it me or the symbol for modified us really weird
+                        symbols = { added = '  ', modified = '  ', removed = '  ' },
+                        color_added = colors.green,
+                        color_modified = colors.orange,
+                        color_removed = colors.red,
+                        condition = conditions.hide_in_width
+                    }
 
-                -- Insert mid section. You can make any number of sections in neovim :)
-                -- for lualine it's any number greater then 2
-                ins_left { function() return '%=' end }
+                    -- Insert mid section. You can make any number of sections in neovim :)
+                    -- for lualine it's any number greater then 2
+                    ins_left { function() return '%=' end }
 
-                --ins_right {
-                    --function()
-                        --local status = require('codeium.virtual_text').status()
-                        --print(status.state)
-                        --if status.state == 'idle' then
-                        --return 'Idle'
-                        --end
-                        --if status.state == 'waiting' then
-                        --return 'Waiting'
-                        --end
-                        --if status.state == 'completions' and status.total > 0 then
-                        --return string.format('%d/%d', status.current, status.total)
-                        --end
-                        --return 'Disabled'
-                        --end,
-                        --icon = '󱚟 ',
-                        --color = { fg = colors.yellow }
-                        --}
+                    --ins_right {
+                        --function()
+                            --local status = require('codeium.virtual_text').status()
+                            --print(status.state)
+                            --if status.state == 'idle' then
+                            --return 'Idle'
+                            --end
+                            --if status.state == 'waiting' then
+                            --return 'Waiting'
+                            --end
+                            --if status.state == 'completions' and status.total > 0 then
+                            --return string.format('%d/%d', status.current, status.total)
+                            --end
+                            --return 'Disabled'
+                            --end,
+                            --icon = '󱚟 ',
+                            --color = { fg = colors.yellow }
+                            --}
 
-                        ins_right {
-                            -- Lsp server name .
-                            function()
-                                local msg = 'No Active Lsp'
-                                local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-                                local clients = vim.lsp.get_active_clients()
-                                if next(clients) == nil then return msg end
-                                for _, client in ipairs(clients) do
-                                    local filetypes = client.config.filetypes
-                                    if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                                        return client.name
+                            ins_right {
+                                -- Lsp server name .
+                                function()
+                                    local msg = 'No Active Lsp'
+                                    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+                                    local clients = vim.lsp.get_clients()
+                                    if next(clients) == nil then return msg end
+                                    for _, client in ipairs(clients) do
+                                        local filetypes = client.config.filetypes
+                                        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                                            return client.name
+                                        end
                                     end
-                                end
-                                return msg
-                            end,
-                            icon = ' ',
-                            color = { fg = colors.fg }
-                        }
+                                    return msg
+                                end,
+                                icon = ' ',
+                                color = { fg = colors.fg }
+                            }
 
-                        ins_right {
-                            'diagnostics',
-                            sources = { 'nvim_diagnostic' },
-                            symbols = { error = ' ', warn = ' ', info = ' ' },
-                            color_error = colors.red,
-                            color_warn = colors.yellow,
-                            color_info = colors.cyan
-                        }
+                            ins_right {
+                                'diagnostics',
+                                sources = { 'nvim_diagnostic' },
+                                symbols = { error = ' ', warn = ' ', info = ' ' },
+                                color_error = colors.red,
+                                color_warn = colors.yellow,
+                                color_info = colors.cyan
+                            }
 
-                        -- Add components to right sections
-                        ins_right {
-                            'o:encoding', -- option component same as &encoding in viml
-                            upper = true, -- I'm not sure why it's upper case either ;)
-                            condition = conditions.hide_in_width,
-                            color = { fg = colors.green, gui = 'bold' }
-                        }
+                            -- Add components to right sections
+                            ins_right {
+                                'o:encoding', -- option component same as &encoding in viml
+                                upper = true, -- I'm not sure why it's upper case either ;)
+                                condition = conditions.hide_in_width,
+                                color = { fg = colors.green, gui = 'bold' }
+                            }
 
-                        ins_right {
-                            'fileformat',
-                            upper = true,
-                            icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-                            color = { fg = colors.green, gui = 'bold' }
-                        }
+                            ins_right {
+                                'fileformat',
+                                upper = true,
+                                icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+                                color = { fg = colors.green, gui = 'bold' }
+                            }
 
-                        ins_right {
-                            -- filesize component
-                            function()
-                                local function format_file_size(file)
-                                    local size = vim.fn.getfsize(file)
-                                    if size <= 0 then return '' end
-                                    local sufixes = { 'B', 'KB', 'MB', 'GB' }
-                                    local i = 1
-                                    while size > 1024 do
-                                        size = size / 1024
-                                        i = i + 1
+                            ins_right {
+                                -- filesize component
+                                function()
+                                    local function format_file_size(file)
+                                        local size = vim.fn.getfsize(file)
+                                        if size <= 0 then return '' end
+                                        local sufixes = { 'B', 'KB', 'MB', 'GB' }
+                                        local i = 1
+                                        while size > 1024 do
+                                            size = size / 1024
+                                            i = i + 1
+                                        end
+                                        return string.format('%.1f%s', size, sufixes[i])
                                     end
-                                    return string.format('%.1f%s', size, sufixes[i])
-                                end
 
-                                local file = vim.fn.expand('%:p')
-                                if string.len(file) == 0 then return '' end
-                                return format_file_size(file)
-                            end,
-                            condition = conditions.buffer_not_empty,
-                            -- icon = ''
-                            -- icon = '💾'
-                            icon = '󰆓'
-                        }
+                                    local file = vim.fn.expand('%:p')
+                                    if string.len(file) == 0 then return '' end
+                                    return format_file_size(file)
+                                end,
+                                condition = conditions.buffer_not_empty,
+                                -- icon = ''
+                                -- icon = '💾'
+                                icon = '󰆓'
+                            }
 
-                        -- ins_right { 'location', icon = '﫴' }
-                        -- ins_right { 'location', icon = '📍' }
+                            -- ins_right { 'location', icon = '﫴' }
+                            -- ins_right { 'location', icon = '📍' }
 
-                        ins_right { 'location', icon = '' }
+                            ins_right { 'location', icon = '' }
 
-                        ins_right { 'progress', icon = '󱪖', color = { fg = colors.fg, gui = 'bold' } }
+                            ins_right { 'progress', icon = '󱪖', color = { fg = colors.fg, gui = 'bold' } }
 
 
-                        ins_right {
-                            function() return '▊' end,
-                            color = { fg = colors.green },
-                            right_padding = 0
-                        }
-                        lualine.setup(config)
-                    end
-                },
-            }
+                            ins_right {
+                                function() return '▊' end,
+                                color = { fg = colors.green },
+                                right_padding = 0
+                            }
+                            lualine.setup(config)
+                        end
+                    },
+                }

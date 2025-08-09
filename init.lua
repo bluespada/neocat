@@ -4,61 +4,62 @@
 local neocat = require'neocat'
 
 neocat.setup {
+    termguicolor = true,
     init = function()
         -- NOTE : SET CMP COLOR
-        -- Menu selection
-        vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#3c3836", fg = "NONE" })
-        vim.api.nvim_set_hl(0, "Pmenu", { fg = "#ebdbb2", bg = "#282828" })
+        -- Popup menu
+        vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#3e4452", fg = "NONE" }) -- selection
+        vim.api.nvim_set_hl(0, "Pmenu", { fg = "#abb2bf", bg = "#21252b" }) -- menu
 
-        -- Cmp abbreviation styling
-        vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#928374", bg = "NONE", strikethrough = true })
-        vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#b8bb26", bg = "NONE", bold = true })
-        vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#b8bb26", bg = "NONE", bold = true })
-        vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#d3869b", bg = "NONE", italic = true })
+        -- Abbreviation styling
+        vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = "#5c6370", bg = "NONE", strikethrough = true })
+        vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#61afef", bg = "NONE", bold = true })
+        vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#61afef", bg = "NONE", bold = true })
+        vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = "#c678dd", bg = "NONE", italic = true })
 
-        -- Custom kind (example: Codeium)
-        vim.api.nvim_set_hl(0, "CmpItemKindCodeium", { bg = "#504945", fg = "#ebdbb2", bold = true })
+        -- Custom kind (e.g. Codeium)
+        vim.api.nvim_set_hl(0, "CmpItemKindCodeium", { bg = "#3e4452", fg = "#abb2bf", bold = true })
 
         -- Red group
-        vim.api.nvim_set_hl(0, "CmpItemKindField", { fg = "#fbf1c7", bg = "#cc241d" })
-        vim.api.nvim_set_hl(0, "CmpItemKindProperty", { fg = "#fbf1c7", bg = "#cc241d" })
-        vim.api.nvim_set_hl(0, "CmpItemKindEvent", { fg = "#fbf1c7", bg = "#cc241d" })
+        vim.api.nvim_set_hl(0, "CmpItemKindField", { fg = "#ffffff", bg = "#e06c75" })
+        vim.api.nvim_set_hl(0, "CmpItemKindProperty", { fg = "#ffffff", bg = "#e06c75" })
+        vim.api.nvim_set_hl(0, "CmpItemKindEvent", { fg = "#ffffff", bg = "#e06c75" })
 
         -- Green group
-        vim.api.nvim_set_hl(0, "CmpItemKindText", { fg = "#b8bb26", bg = "#3c3836" })
-        vim.api.nvim_set_hl(0, "CmpItemKindEnum", { fg = "#b8bb26", bg = "#3c3836" })
-        vim.api.nvim_set_hl(0, "cmpItemKindKeyword", { fg = "#b8bb26", bg = "#3c3836" })
+        vim.api.nvim_set_hl(0, "CmpItemKindText", { fg = "#98c379", bg = "#2c313a" })
+        vim.api.nvim_set_hl(0, "CmpItemKindEnum", { fg = "#98c379", bg = "#2c313a" })
+        vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { fg = "#98c379", bg = "#2c313a" })
 
-        -- Orange/Yellow group
-        vim.api.nvim_set_hl(0, "CmpItemKindConstant", { fg = "#fe8019", bg = "#d79921" })
-        vim.api.nvim_set_hl(0, "CmpItemKindConstructor", { fg = "#fe8019", bg = "#d79921" })
-        vim.api.nvim_set_hl(0, "CmpItemKindReference", { fg = "#fe8019", bg = "#d79921" })
+        -- Orange group
+        vim.api.nvim_set_hl(0, "CmpItemKindConstant", { fg = "#d19a66", bg = "#3e4452" })
+        vim.api.nvim_set_hl(0, "CmpItemKindConstructor", { fg = "#d19a66", bg = "#3e4452" })
+        vim.api.nvim_set_hl(0, "CmpItemKindReference", { fg = "#d19a66", bg = "#3e4452" })
 
-        -- Blue-ish group
-        vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = "#83a598", bg = "#458588" })
-        vim.api.nvim_set_hl(0, "CmpItemKindStruct", { fg = "#83a598", bg = "#458588" })
-        vim.api.nvim_set_hl(0, "CmpItemKindClass", { fg = "#83a598", bg = "#458588" })
-        vim.api.nvim_set_hl(0, "CmpItemKindModule", { fg = "#83a598", bg = "#458588" })
-        vim.api.nvim_set_hl(0, "CmpItemKindOperator", { fg = "#83a598", bg = "#458588" })
+        -- Blue (Primary) group
+        vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = "#61afef", bg = "#2c313c" })
+        vim.api.nvim_set_hl(0, "CmpItemKindStruct", { fg = "#61afef", bg = "#2c313c" })
+        vim.api.nvim_set_hl(0, "CmpItemKindClass", { fg = "#61afef", bg = "#2c313c" })
+        vim.api.nvim_set_hl(0, "CmpItemKindModule", { fg = "#61afef", bg = "#2c313c" })
+        vim.api.nvim_set_hl(0, "CmpItemKindOperator", { fg = "#61afef", bg = "#2c313c" })
 
-        -- Neutral group
-        vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = "#ebdbb2", bg = "#3c3836" })
-        vim.api.nvim_set_hl(0, "CmpItemKindFile", { fg = "#ebdbb2", bg = "#3c3836" })
+        -- Neutral
+        vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = "#abb2bf", bg = "#3e4452" })
+        vim.api.nvim_set_hl(0, "CmpItemKindFile", { fg = "#abb2bf", bg = "#3e4452" })
 
-        -- Yellow-brown group
-        vim.api.nvim_set_hl(0, "CmpItemKindUnit", { fg = "#fabd2f", bg = "#7c6f64" })
-        vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = "#fabd2f", bg = "#7c6f64" })
-        vim.api.nvim_set_hl(0, "CmpItemKindFolder", { fg = "#fabd2f", bg = "#7c6f64" })
+        -- Yellow group
+        vim.api.nvim_set_hl(0, "CmpItemKindUnit", { fg = "#e5c07b", bg = "#4b4f58" })
+        vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = "#e5c07b", bg = "#4b4f58" })
+        vim.api.nvim_set_hl(0, "CmpItemKindFolder", { fg = "#e5c07b", bg = "#4b4f58" })
 
-        -- Aqua group
-        vim.api.nvim_set_hl(0, "CmpItemKindMethod", { fg = "#8ec07c", bg = "#3c443c" })
-        vim.api.nvim_set_hl(0, "CmpItemKindValue", { fg = "#8ec07c", bg = "#3c443c" })
-        vim.api.nvim_set_hl(0, "CmpItemKindEnumMember", { fg = "#8ec07c", bg = "#3c443c" })
+        -- Aqua/Teal group
+        vim.api.nvim_set_hl(0, "CmpItemKindMethod", { fg = "#56b6c2", bg = "#2c313a" })
+        vim.api.nvim_set_hl(0, "CmpItemKindValue", { fg = "#56b6c2", bg = "#2c313a" })
+        vim.api.nvim_set_hl(0, "CmpItemKindEnumMember", { fg = "#56b6c2", bg = "#2c313a" })
 
-        -- Cyan group
-        vim.api.nvim_set_hl(0, "CmpItemKindInterface", { fg = "#689d6a", bg = "#3c3836" })
-        vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = "#689d6a", bg = "#3c3836" })
-        vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = "#689d6a", bg = "#3c3836" })
+        -- Cyan-ish group
+        vim.api.nvim_set_hl(0, "CmpItemKindInterface", { fg = "#56b6c2", bg = "#3e4452" })
+        vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = "#56b6c2", bg = "#3e4452" })
+        vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = "#56b6c2", bg = "#3e4452" })
 
         local project_ftplugin = vim.fn.getcwd() .. '/.nvim/after/ftplugin'
         if vim.fn.isdirectory(project_ftplugin) == 1 then
