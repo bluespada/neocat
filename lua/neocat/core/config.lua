@@ -34,11 +34,12 @@ M.init = function(config)
     opt.cursorline = config.cursorline and config.cursorline or true
     opt.list = config.list and config.list or true
     opt.ignorecase = config.ignorecase and config.ignorecase or true
-    opt.colorcolumn = config.colorcolumn and config.colorcolumn or '80'
+    opt.colorcolumn = config.colorcolumn and config.colorcolumn or ''
     opt.splitbelow = config.splitbelow and config.splitbelow or true
     opt.splitright = config.splitright and config.splitright or true
     opt.scrolloff = config.scrolloff and config.scrolloff or 3
     opt.numberwidth = config.numberwidth and config.numberwidth or 4
+    opt.fillchars:append({ eob = config.fillchar_end and config.fillchar_end or ' ' })
     -- autocmd
     c([[
     autocmd!

@@ -9,7 +9,8 @@ return {
                 integrations = {
                     cmp = true,
                     gitsigns = true,
-                    treesitter = true
+                    treesitter = true,
+                    bufferline = true
                 }
             }
             vim.cmd.colorscheme "catppuccin"
