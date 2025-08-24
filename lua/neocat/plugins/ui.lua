@@ -1,20 +1,19 @@
 return {
     -- Interface 
     {
-        "catppuccin/nvim", name = "catppuccin", priority = 1000,
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000 ,
         config = function()
-            require'catppuccin'.setup{
-                flavour = "macchiato",
-                transparent_background = true,
-                integrations = {
-                    cmp = true,
-                    gitsigns = true,
-                    treesitter = true,
-                    bufferline = true
-                }
+            local gruvbox = require'gruvbox'
+
+            gruvbox.setup {
+                transparent_mode = true,
+                contrast = "soft",
             }
-            vim.cmd.colorscheme "catppuccin"
-        end
+
+            vim.cmd("colorscheme gruvbox")
+        end,
+        opts = ...
     },
     { 'DaikyXendo/nvim-material-icon' }, -- icons
     { 
