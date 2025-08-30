@@ -8,8 +8,8 @@ return {
             local snack = require'snacks'
             snack.setup {
                 bigfile = { enabled = true },
-                dashboard = { enabled = true },
-                explorer = { enabled = true },
+                dashboard = { enabled = false },
+                explorer = { enabled = false },
                 indent = { enabled = true },
                 input = { enabled = true },
                 picker = { enabled = true },
