@@ -4,11 +4,10 @@ local M = {}
 local lazy = require'neocat.core.lazy'
 
 function M.setup(cfg)
-    -- check and install lazy
-    lazy.check_and_install()
-    -- setup configuration
     require'neocat.core.config'.init(cfg)
     require'neocat.keybind'.bind(cfg)
+    -- check and install lazy
+    lazy.check_and_install()
 end
 
 return M

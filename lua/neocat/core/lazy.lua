@@ -25,10 +25,9 @@ function lazy.check_and_install()
             { import = "neocat.plugins" },
             { import = "plugins" }
         },
-        checker = { enabled = true },
+        checker = { enabled = true, notify = true },
         install = {
             missing = true,
-            colorscheme = { "kanagawa" }
         }
     }
 end

@@ -1,16 +1,37 @@
 return {
+    -- ui utils
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        config = function()
+            local snack = require'snacks'
+            snack.setup {
+                bigfile = { enabled = true },
+                dashboard = { enabled = true },
+                explorer = { enabled = true },
+                indent = { enabled = true },
+                input = { enabled = true },
+                picker = { enabled = true },
+                notifier = { enabled = true },
+                quickfile = { enabled = true },
+                scope = { enabled = true },
+                scroll = { enabled = true },
+                statuscolumn = { enabled = true },
+                words = { enabled = true },
+            }
+        end
+    },
     -- Interface 
     {
         "ellisonleao/gruvbox.nvim",
         priority = 1000 ,
         config = function()
             local gruvbox = require'gruvbox'
-
             gruvbox.setup {
                 transparent_mode = true,
-                contrast = "soft",
+                contrast = "hard",
             }
-
             vim.cmd("colorscheme gruvbox")
         end,
         opts = ...
